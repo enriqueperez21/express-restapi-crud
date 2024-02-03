@@ -11,7 +11,7 @@ const UserRoutes = require('./src/routes/users')
 //settingg
 app.set('case sensitive routing', true)
 app.set('appName', 'Express course')
-app.set('port', 3000)
+app.set('port', 80)
 app.set('view engine', 'ejs')
 app.set('views',path.join(__dirname, './src/views'))
 

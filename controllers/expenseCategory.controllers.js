@@ -66,7 +66,7 @@ export const getSomeExpenseCategory = async(req, res)=>{
   try {
     const idsCategory = req.body.categoriesIds
     const categories = await ExpenseCategory.find({_id: idsCategory})
-    if(!categories){return res.sendStatus(404)}
+    if(categories.length == 0){return res.status(400).json({"error": "No se encontró ningún elemento"})}
     res.json(categories)
   } catch (error) {
     console.log(error.message)

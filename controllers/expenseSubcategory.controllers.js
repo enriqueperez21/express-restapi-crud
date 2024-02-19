@@ -70,3 +70,15 @@ export const getSomeExpenseSubcategory = async(req, res)=>{
     res.status(500).json({error: error.message}) 
   }
 }
+
+export const getSomeExpenseSubcategoryPrivate = async(subcategoriesIds)=>{
+  try {
+    const idsSubcategory = subcategoriesIds
+    const categories = await expenseSubcategory.find({_id: idsSubcategory})
+    if(categories.length == 0){return null}
+    return(categories)
+  } catch (error) {
+    console.log(error.message)
+    return null
+  }
+}

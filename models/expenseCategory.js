@@ -52,6 +52,9 @@ const expenseCategorySchema = new mongoose.Schema({
       },
     },
   },
+  expenseSubcategory:{
+    type: Array,
+  }
 }, { collection: 'expenseCategory' });
 //Post is the collection
 export default mongoose.model('expenseCategory', expenseCategorySchema)

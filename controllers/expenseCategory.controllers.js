@@ -73,3 +73,15 @@ export const getSomeExpenseCategory = async(req, res)=>{
     res.status(500).json({message: error.message}) 
   }
 }
+
+export const getSomeExpenseCategoryPrivate = async(categoriesIds)=>{
+  try {
+    const idsCategory = categoriesIds
+    const categories = await ExpenseCategory.find({_id: idsCategory})
+    if(categories.length == 0){return null}
+    return(categories)
+  } catch (error) {
+    console.log(error.message)
+    return null
+  }
+}

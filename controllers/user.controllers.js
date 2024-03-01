@@ -47,3 +47,15 @@ export const allUserData = async (req, res)=>{
     res.status(500).json({message: error.message})
   }
 }
+
+export const updateUser = async (req, res)=>{
+  try {
+    const data = req.body
+    const userEmail = req.params.email
+    const updateUser = await Users.findOneAndUpdate({email: userEmail},data, {new: true})
+    res.send(updateUser)
+  }catch (error) {
+    console.log(error.message)
+    res.status(500).json({message: error.message})
+  }
+}
